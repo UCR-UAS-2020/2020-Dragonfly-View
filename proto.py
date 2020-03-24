@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 ## Objects for use elsewhere.
 
 from enum import Enum

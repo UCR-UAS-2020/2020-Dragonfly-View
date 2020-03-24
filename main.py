@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Performs target search on provided images
 # main.py handles io to bash
 import argparse
