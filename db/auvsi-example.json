@@ -1,0 +1,10 @@
+{
+  "type": "standard",
+  "latitude": 38.1478,
+  "longitude": -76.4275,
+  "orientation": "n",
+  "shape": "star",
+  "background_color": "orange",
+  "alphanumeric": "C",
+  "alphanumeric_color": "black"
+}

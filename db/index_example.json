@@ -1,0 +1,22 @@
+{
+    "imagelist":{
+        "0001":{
+            "json":"\location\img0001.json"
+            "img":"\location\img0001.jpg"
+        }
+        "0002":{
+            "json":"\location\img0001.json"
+            "img":"\location\img0001.jpg"
+        }
+    }
+    "targetlist":{
+        "01":{
+            "json":"\location\t01.json"
+            "crop":"\location\t01.jpg"
+        }
+        "02":{
+            "json":"\location\t01.json"
+            "crop":"\location\t01.jpg"
+        }
+    }
+}
