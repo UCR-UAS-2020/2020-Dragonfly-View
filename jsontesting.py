@@ -1,3 +1,6 @@
+# example script only
+
+
 import json
 
 
@@ -6,7 +9,7 @@ with open('auvsi-example.json') as f:
     print(datDict)
 
 obj_type = datDict['type']
-
+# Syntax for safe key probing:
 try:
     nullKey = datDict['noSuchListing']
 except KeyError:
