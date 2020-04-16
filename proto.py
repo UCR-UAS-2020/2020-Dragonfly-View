@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-## Objects for use elsewhere.
+# Objects for use elsewhere.
+
+import math
 
 from enum import Enum
+
 
 class Color(Enum):
     White = 1
@@ -16,6 +19,7 @@ class Color(Enum):
     Purple = 8
     Brown = 9
     Orange = 10
+
 
 class Shape(Enum):
     Circle = 1
@@ -32,18 +36,19 @@ class Shape(Enum):
     Star = 12
     Cross = 13
 
-"""
-Note: There are hundreds of these by the end of the mission, so try to keep iterables in the Target object instead.
 
-cam_image: Object to hold references of images captured by the camera.
-
-filename: Location of the image (dev: do not store array in memory, these are really big)
-targets: targets associated with this image
-timestamp: time photo was taken (for sorting)
-
-"""
 class CamImage:
-    def __init__(self,number,file_path,timestamp,latitude,longitude,altitude,angle):
+    """
+    Note: There are hundreds of these by the end of the mission, so try to keep iterables in the Target object instead.
+
+    cam_image: Object to hold references of images captured by the camera.
+
+    filename: Location of the image (dev: do not store array in memory, these are really big)
+    targets: targets associated with this image
+    timestamp: time photo was taken (for sorting)
+
+    """
+    def __init__(self, number, file_path, timestamp, latitude, longitude, altitude, angle):
         self.number = number                    # number in sequence of images
         self.file_path = file_path              # location of jpg in directory
         self.targets = []                       # list of associated targets
@@ -53,18 +58,19 @@ class CamImage:
         self.altitude = altitude                # position of camera when image was taken
         self.angle = angle                      # Tuple representing roll, pitch, yaw when image was taken
 
-
     def dead_recon(self, xy_pos):
         # check xy is in range of photo
         # calculations based on angle
+
         return
 
-"""
-There are less than 30 of these total.
 
-"""
 class Target:
-    def __init__(self, image):
+    """
+    There are less than 30 of these total.
+
+    """
+    def __init__(self):
         self.images = []                # list of image objects that this target shares in
         self.crop = None                # a cropped version of this target from the first time it was spotted
         self.type = None                # as required in mission spec
@@ -92,6 +98,21 @@ class Target:
     def push_index(self):
         return
 
+    def dist_between(self, other: 'Target'):
+
+        radius = 6.371e6  # meters
+
+        phi1 = math.radians(self.latitude)
+        phi2 = math.radians(other.latitude)
+        d_phi = phi2 - phi1
+        d_theta = math.radians(self.longitude - other.longitude)
+
+        x = d_theta * math.cos((phi1 + phi2) / 2)
+        y = d_phi
+        d = radius * math.sqrt(x**2 + y**2)
+        return d
+
+
 # Independent functions:
 
 
@@ -100,5 +121,5 @@ class Target:
 # If overwrite is false, this will only create an index if there is none there
 # returns True if overwritten, False otherwise
 # index.json should contain only a blank imagelist object and a blank targetlist object
-def make_index(directory_path,overwrite):
+def make_index(directory_path, overwrite):
     return

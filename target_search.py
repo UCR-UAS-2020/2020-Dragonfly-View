@@ -11,11 +11,11 @@ from enum import Enum
 import proto
 
 # TODO:
-# Finds a list of targets in an image.
-# Input:
+#  Finds a list of targets in an image.
+#  Input:
 #   image: an image object defined in proto
 #   verbose: a boolean, true to provide verbose output.
-# Output:
+#  Output:
 #   returns a list of target objects corresponding to all targets found in the image
 
 def find_targets(image, verbose):
@@ -62,15 +62,16 @@ def pre_process(img):
 
 
 # TODO:
-# If run as main, display results to screen and console.
-# If run as module, pass back the image and target objects
-# If run as module with verbose, do both
+#  If run as main, display results to screen and console.
+#  If run as module, pass back the image and target objects
+#  If run as module with verbose, do both
 
 if __name__ == '__main__':
     print('target_search as main')
     # Build functionality to test this directly
     # if run from console, pass in a file path
-    # this script displays the original image and all found objects to windows, and prints img and target objects to console
+    # this script displays the original image and all found objects to windows
+    # and prints img and target objects to console
     parser = argparse.ArgumentParser()
 
 
